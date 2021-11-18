@@ -6,11 +6,11 @@ imageForm.addEventListener("submit", async event => {
   event.preventDefault()
   const file = imageInput.files[0]
 
-  // get secure url from our server
+  // Obtem url segura do servidor
   const { url } = await fetch("/s3Url").then(res => res.json())
   console.log(url)
 
-  // post the image direclty to the s3 bucket
+  // Upload da imagem direto do bucket
   await fetch(url, {
     method: "PUT",
     headers: {
@@ -22,7 +22,7 @@ imageForm.addEventListener("submit", async event => {
   const imageUrl = url.split('?')[0]
   console.log(imageUrl)
 
-  // post requst to my server to store any extra data
+  // Enviar ao servidro para armazenamento de qualquer dado
   
   
   const img = document.createElement("img")

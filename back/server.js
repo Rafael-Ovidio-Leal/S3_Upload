@@ -5,9 +5,10 @@ const app = express()
 
 app.use(express.static('front'))
 
+//rota upload
 app.get('/s3Url', async (req, res) => {
   const url = await generateUploadURL()
   res.send({url})
 })
 
-app.listen(8000, () => console.log("listening on port 8000"))
+app.listen(8080, () => console.log("listening on port 8080"))
